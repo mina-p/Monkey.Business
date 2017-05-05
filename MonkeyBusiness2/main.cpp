@@ -11,24 +11,34 @@
 
 using namespace std;
 
-const int numberOfMonkeys = 3;
-const int days = 2;
+int numberOfMonkeys;
+const int days = 7;
 
 void getAverage(const int arr[][days], int);
 void getExtreme(int arr[][days], string);
 
 int main() {
-    int choice;
+    int choice, tempCin;
     cout << "Welcome to Monkey Data!" << endl << endl;
+    cout << "Please enter the number of monkeys in your zoo: ";
+    cin >> numberOfMonkeys;
+    cout << endl;
     cout << "Please enter the data of your monkeys." << endl;
     int monkeyData[numberOfMonkeys][days]; // Creates array of days per monkey.
     for (int count = 0; count < numberOfMonkeys; count++) // Increments # of monkeys.
     {
         for(int count2 = 0; count2 < days; count2++) // Increments # of days.
         {
-            cout << "Please enter the amount of food given to Monkey " << count+1; //Prompts user to input monkey data.
-            cout << " on day " << count2+1 << " :";
-            cin >> monkeyData[count][count2];
+            tempCin = -1;
+            while (tempCin < 0)
+            {
+                cout << "Please enter the amount of food given to Monkey " << count+1;
+                cout << " on day " << count2+1 << " : ";
+                cin >> tempCin;
+                if (tempCin < 0)
+                    cout << "Please enter a valid amount of food." << endl;
+            }
+            monkeyData[count][count2] = tempCin;
         }
     }
     cout << endl;
@@ -48,6 +58,7 @@ int main() {
             cout << "Please enter a valid choice: ";
             cin >> choice;
         }
+    
         switch(choice) // Different menu options that were given.
         {
             case 1:
