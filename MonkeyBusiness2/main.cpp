@@ -113,7 +113,7 @@ void getExtreme(int arr[][days], string extreme)
     else
         compVal = -1;
     int monkeyNum;
-    cout << "Enter the monkey number you wish to see the lowest amount of food eaten during the week: ";
+    cout << "Enter the monkey number you wish to see the " << extreme << " amount of food eaten during the week: ";
     cin >> monkeyNum;
     for (int count = 0; count < days; count++)
         {
